@@ -400,7 +400,7 @@ function filter(e) {
         notFound.style.height = "400px";
         setTimeout(() => {
             notFound.style.height = "0px";
-        }, 3000);
+        }, 4000);
         getProduct(products);
     }
 
@@ -421,7 +421,7 @@ function getProduct(products) {
           <div class="over">
             <i class="fa-solid fa-basket-shopping fa-xl ps-4 pt-5"  style="color: #fcfcff;"></i>
             <img src="${p.icon}" class="iconCard">
-            <p><a class="btn btn-outline-warning addBtn" href="#" id="${p._id}"> sepete ekle »</a></p>
+            <p><a class=" addBtn" href="#" id="${p._id}"> sepete ekle »</a></p>
             <p class="cartTitle mb-4"> Sepete eklemeyi unutma ..!</p>
           </div>
           <div class="cardImgDiv mb-5 mt-5">
@@ -452,13 +452,18 @@ function addBtnFunction(e) {
 }
 
 function deletePayment(id) {
-    indexDecrease();
+
+
     let liEl = document.getElementById("liEl-" + id);
     liEl.remove();
     totalPrice();
+    indexDecrease();
+
 }
 
 function payment(productId) {
+
+
     let cardDropMenu = document.getElementById("cardDropMenu");
     let selectedProduct = products.filter(item => item._id == productId);
 
@@ -480,7 +485,8 @@ function payment(productId) {
             <p>price: ${selectedProduct[0].price}</p>
             <p>size:${selectedProduct[0].size}</p>
           </div>
-          <button type="button" id="${selectedProduct[0]._id}"  class="btn btn-danger close"  onclick="deletePayment(${selectedProduct[0]._id})" >x</button>
+          <button type="button" id="${selectedProduct[0]._id}"  class="btn btn-danger close rounded-pill"  onclick="deletePayment(${selectedProduct[0]._id})" >x</button>
+          <button type="button" id="${selectedProduct[0]._id}"  class="btn btn-warning  rounded-pill"  onclick="xPayment()">0</button>
         </div>
         </a>
         </li>
@@ -497,23 +503,14 @@ function payment(productId) {
 
 function totalPrice() {
 
-
     let total = 0;
-    // var olan total idye sahip elemnti sildim.
-    let totalEl = document.getElementById("total");
-    console.log(totalEl, " total buldum");
-    if (totalEl) {
-        totalEl.remove();
-        console.log(" total buldum sildim");
-    }
-
     //eklenen tüm elemetleri id ile yakalayıp price değerine ulaştım 
     let basket = document.querySelectorAll("[id*='liEl-']");
     basket.forEach(element => {
         let id = element.id;
         let number = id.split("liEl-")[1];
 
-        // AllProductOrder.push(number);gerekirse kullanılır
+        // AllProductOrder.push(number);
         products.filter(f => {
 
             if (f._id == number) {
@@ -522,6 +519,14 @@ function totalPrice() {
         });
 
     });
+
+    // var olan total idye sahip elemnti sildim.
+    let totalEl = document.getElementById("total");
+    console.log(totalEl, " total buldum");
+    if (totalEl) {
+        totalEl.remove();
+        console.log(" total buldum sildim");
+    }
     // tüm total değerlerini sildiğim için güncel totallı yazdırdım 
     cardDropMenu.innerHTML += `
     <li class="total" id="total"><a class=" text-center " href="#">Toplam:${total}</a></li>`
@@ -548,11 +553,12 @@ function indexIncrease() {
 };
 
 function emptyBasket() {
-    let totalEl = document.getElementById("total");
+
     if (order == 0) {
         let firstChild = cardDropMenu.firstElementChild;
         firstChild.style.display = "block";
         cardSpan.style.display = "none";
+        let totalEl = document.getElementById("total");
         totalEl.remove();
     }
 }
