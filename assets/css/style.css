@@ -166,11 +166,19 @@ h4 {
 }
 
 .categoryWrapper {
-  padding: 50px;
-  width: 800px;
-  margin: auto;
-  overflow: hidden;
+  overflow-x: scroll;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  height: auto;
+  padding: 20px;
 }
+
+.categoryWrapper::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+
 .cartImgDiv {
   width: 100%;
 }
@@ -220,11 +228,12 @@ h4 {
   width: 50px;
   height: 50px;
   padding-top: 3px;
-  transition: all 0.5s ease;
+  transition: all 0.7s ease;
 }
 .search {
   width: 100%;
   padding: 10px;
+  padding-left: 20px;
   background-color: transparent;
   font-weight: 600;
   font-size: 1.5rem;
@@ -335,8 +344,59 @@ h4 {
   transform: scale(1.2);
 }
 
-@media screen and (max-width: 700px) {
+.togBtn {
+  color: var(--theme) !important;
+  box-shadow: 0 4px 8px 0 rgba(241, 165, 50, 0.541),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.notFound {
+  background-image: url("/images/bird\ \(5\).png");
+  margin-top: 50px;
+  box-shadow: 0 4px 8px 0 rgba(241, 165, 50, 0.541),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 0px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.contactBtn {
+  font-size: 1.3rem;
+  font-family: var(--Poppin-font);
+  font-weight: 700;
+  width: 250px;
+  height: 50px;
+  background-color: #08080c6b;
+  border-radius: 20px;
+  margin: 10px;
+  color: var(--theme);
+  box-shadow: 0 4px 8px 0 rgba(241, 165, 50, 0.541),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.contactBtn:hover {
+  transform: scale(1.2);
+}
+
+@media screen and (max-width: 800px) {
+  .inputDiv {
+    background-color: transparent;
+  }
+  .inputDiv:hover {
+    width: 100% !important;
+    margin: 10px;
+  }
+
+  .navbar {
+    background-color: #08080cd0;
+  }
+  .nav {
+    justify-content: center !important;
+  }
   .categoryWrapper {
     width: 100%;
+    overflow-x: scroll;
   }
 }

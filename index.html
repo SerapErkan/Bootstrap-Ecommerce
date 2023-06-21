@@ -17,10 +17,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap"
     rel="stylesheet" />
-    <!-- font-family: 'Pacifico' -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <!-- font-family: 'Pacifico' -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <!-- font awesome icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -30,124 +30,175 @@
 
 <body class="bg-dark">
   <!-- navbar -->
-
-  <nav class="navbar fixed-top p-4 mb-5  ">
-    <div class="container-sm container-md container-xl">
-   
+  <nav class="navbar  fixed-top p-4 mb-5  ">
+    <div class="  container-sm container-md container-xl d-flex  justify-content-between">
       <a class="navbar-brand brand "> </i>Serap Erkan</a>
-      <div class="d-flex justify-content-center align-items-center ">
-        <div class="inputDiv me-4">
-          <input type="text" id="search" class="search" autocomplete="off" required/>
-               <i class="fa-solid fa-magnifying-glass text-white fa-xl searchIcon"></i>
-        </div>
-        <button class="buttonBt me-4  text-white rounded-circle" type="button">
-          <i class="fa-solid fa-heart fa-xl"></i></button>
-          <button class="buttonBt me-4  text-white rounded-circle" type="button">
-            <i class="fa-solid fa-user fa-xl"></i></button>
 
+      <div class="d-flex justify-content-center align-items-center d-none d-md-block ">
 
-         <div class="btn-group">
-          <button type="button" class=" buttonBt me-4  text-white rounded-circle  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-cart-plus fa-xl "></i> <span id="cardSpan" class="position-absolute top-0 bg-danger rounded-circle ms-5 mt-2  ps-3 pe-3 p-2 cardSpan"></span>
+        <button class="inputDiv me-4 text-white">
+          <input type="text" id="search" class="search" autocomplete="off" required />
+          <i class="fa-solid fa-magnifying-glass  fa-xl searchIcon"></i>
+        </button>
+
+        <div class="btn-group">
+          <button type="button" class=" buttonBt me-4  text-white rounded-circle  dropdown-toggle"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-cart-plus fa-xl "></i> <span id="cardSpan"
+              class="position-absolute top-0 bg-danger rounded-circle ms-5 mt-2  ps-3 pe-3 p-2 cardSpan"></span>
           </button>
-          <ul class="dropdown-menu mt-5  cardDropMenu  " id="cardDropMenu" >
+          <ul class="dropdown-menu mt-5  cardDropMenu  " id="cardDropMenu">
             <li><img class="basketIconFree" src="images/cat.png">
               <a class=" " href="#">
-              <p class="text-center ">Sepet Boş</p>
-            </a>
-          </li>
+                <p class="text-center ">Sepet Boş</p>
+              </a>
+            </li>
           </ul>
-          
+
         </div>
-   
-
-
-          
+    
+        <button class="buttonBt me-4  text-white rounded-circle fa-xl" type="button">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
 
       </div>
 
+      <!-- collapse -->
+
+      <button class="navbar-toggler togBtn  d-sm-blok d-md-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="nav collapse navbar-collapse d-sm-blok d-md-none " id="navbarNav">
+
+        <div class="inputDiv me-4 text-white">
+          <input type="text" id="search2" class="search" autocomplete="off" required />
+          <i class="fa-solid fa-magnifying-glass  fa-xl searchIcon"></i>
+        </div>
+        <button class="buttonBt me-4  text-white rounded-circle fa-xl" type="button">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+        <div class="btn-group">
+          <button type="button" class=" buttonBt me-4  text-white rounded-circle  dropdown-toggle"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-cart-plus fa-xl "></i> <span id="cardSpan"
+              class="position-absolute top-0 bg-danger rounded-circle ms-5 mt-2  ps-3 pe-3 p-2 cardSpan"></span>
+          </button>
+          <ul class="dropdown-menu mt-5  cardDropMenu  " id="cardDropMenu">
+            <li><img class="basketIconFree" src="images/cat.png">
+              <a class=" " href="#">
+                <p class="text-center ">Sepet Boş</p>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      
+      
+
+      </div>
     </div>
+
   </nav>
 
-
-
-
   <!-- ------slider--- -->
-  <div id="myCarousel" class="carousel slide mb-5 mt-5" data-bs-ride="carousel" data-bs-theme="light">
-    <div class="carousel-indicators ">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active"
-        aria-current="true"></button>
+  <div class=container>
+    <div id="myCarousel" class="carousel slide mb-5 mt-5" data-bs-ride="carousel" data-bs-theme="light">
+      <div class="carousel-indicators ">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active"
+          aria-current="true"></button>
+      </div>
+      <div class="carousel-inner ">
+        <div class="carousel-item text-center">
+
+          <div class="container ">
+            <img src="./images/slider-1.png" class=" bd-placeholder-img aria-hidden=" true"
+              preserveAspectRatio="xMidYMid slice" focusable="false"></img>
+            <div class="carousel-caption text-start  ps-5 ms-5">
+              <h1>Example headline.Example headline.</h1>
+              <p class="opacity-75">Some representative placeholder content for the first slide of the carousel ttt.</p>
+              <p><a class="btn btn-lg btn-outline-warning p-3" href="#">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="carousel-item">
+
+          <div class="container mb-5">
+            <img src="./images/slider-2.png" class="imgSlider bd-placeholder-img" aria-hidden="true"
+              preserveAspectRatio="xMidYMid slice" focusable="false"></img>
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p class="mb-5">Some representative placeholder content for the second slide of the carouselhhhnnnn.</p>
+              <p><a class="btn btn-lg btn-outline-warning p-3" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item active">
+
+          <div class="container">
+            <img src="./images/slider-3.png" class="imgSlider bd-placeholder-img" aria-hidden="true"
+              preserveAspectRatio="xMidYMid slice" focusable="false"></img>
+
+            <div class="carousel-caption text-end pe-5 me-5 ">
+              <h1>One more for good measure.</h1>
+              <p>Some representative placeholder content for the third slide of this carouseliii.</p>
+              <p>Some representative placeholder content for the third slide of this carousel.</p>
+              <p><a class="btn btn-lg btn-outline-warning p-3" href="#">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <div class="carousel-inner ">
-      <div class="carousel-item text-center">
-
-        <div class="container ">
-          <img src="./images/slider-1.png" class=" bd-placeholder-img aria-hidden=" true"
-            preserveAspectRatio="xMidYMid slice" focusable="false"></img>
-          <div class="carousel-caption text-start  ps-5 ms-5">
-            <h1>Example headline.Example headline.</h1>
-            <p class="opacity-75">Some representative placeholder content for the first slide of the carousel ttt.</p>
-            <p><a class="btn btn-lg btn-outline-warning p-3" href="#">Sign up today</a></p>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="carousel-item">
-
-        <div class="container mb-5">
-          <img src="./images/slider-2.png" class="imgSlider bd-placeholder-img" aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice" focusable="false"></img>
-          <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p class="mb-5">Some representative placeholder content for the second slide of the carouselhhhnnnn.</p>
-            <p><a class="btn btn-lg btn-outline-warning p-3" href="#">Learn more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item active">
-     
-        <div class="container">
-          <img src="./images/slider-3.png" class="imgSlider bd-placeholder-img" aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice" focusable="false"></img>
-
-          <div class="carousel-caption text-end pe-5 me-5 ">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carouseliii.</p>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-outline-warning p-3" href="#">Browse gallery</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
-  <!-- end slider-------------- -->
 
+  <!-- end slider-------------- -->
   <!-- -------category-------- -->
 
-  <div class="categoryWrapper  ">
-    <div class="row row-cols-1 row-cols-md-4 text-center">
-      <div class="col-sm-12 col-md-3" id="dog" > <img src="./images/dog.png" class="rounded-circle imgCategory " /></div>
-      <div class="col-sm-12 col-md-3" id="cat" > <img src="./images/cat.png" class="rounded-circle imgCategory " /></div>
-      <div class="col-sm-12 col-md-3 " id="bird" > <img src="./images/bird.png" class="rounded-circle imgCategory " /></div>
-      <div class="col-sm-12 col-md-3" id="fish" > <img src="./images/fish.png" class="rounded-circle imgCategory " /></div>
+
+  <div class="container-sm container-xl d-flex justify-content-center align-items-center">
+  <div class="categoryWrapper">
+      <div id="dog" class="me-4"> <img src="./images/dog.png" class="rounded-circle imgCategory " /></div>
+      <div id="cat"class="me-4"> <img src="./images/cat.png" class="rounded-circle imgCategory " /></div>
+      <div id="bird" class="me-4"> <img src="./images/bird.png" class="rounded-circle imgCategory " /></div>
+      <div id="fish" class="me-4"> <img src="./images/fish.png" class="rounded-circle imgCategory " /></div>
+      <div id="fox" class="me-4 "> <img src="./images/66.png" class="rounded-circle imgCategory " /></div>
+      <div id="elephant"class="me-4"> <img src="./images/67.png" class="rounded-circle imgCategory " /></div>
+      <div id="rabbit" class="me-4"> <img src="./images/68.png" class="rounded-circle imgCategory " /></div>
+      <div id="lion" class="me-4"> <img src="./images/69.png" class="rounded-circle imgCategory " /> </div>
+      <div id="penguin" class="me-4"> <img src="./images/70.png" class="rounded-circle imgCategory " /></div>
+      <div id="panda" class="me-4"> <img src="./images/71.png" class="rounded-circle imgCategory " /></div>
+
     </div>
   </div>
+  
+<div class="container  notFound d-flex align-items-center"id="notFound">
+  <div class="text-white d-flex flex-column ms-5  ">
+  <button class="contactBtn "><i class="fa-regular fa-envelope fa-2xl me-4"></i>Mail</button>
+  <button class="contactBtn "><i class="fa-brands fa-github fa-2xl me-4" > </i>Github</button>
+  <button class="contactBtn "><i class="fa-brands fa-linkedin fa-2xl me-4"></i>linkedin</button>
+  <button class="contactBtn "><i class="fa-brands fa-twitter fa-2xl me-4"></i>Twitter</button>
+  </div>
+</div>
+
+
+
   <!--end -------category-------- -->
 
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 pb-5 mb-5 mt-5" id="cardId">
-      
+
       <!-- add-products -->
 
     </div>
@@ -163,7 +214,7 @@
 
 <script src="/js/index.js"></script>
 
- 
+
 <!-- ---axios cdnjs ---------->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
   integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="

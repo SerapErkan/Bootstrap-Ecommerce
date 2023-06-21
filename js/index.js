@@ -359,8 +359,8 @@ window.addEventListener('scroll', function () {
     }
 });
 
-let index = 0;
-let total = 0;
+
+
 let cardId = document.getElementById("cardId");
 let searchInput = document.getElementById("search");
 let cardSpan = document.getElementById("cardSpan");
@@ -370,27 +370,44 @@ let birdId = document.getElementById("bird");
 let fishId = document.getElementById("fish");
 let catId = document.getElementById("cat");
 
+let cardDropMenu = document.getElementById("cardDropMenu");
+let liElements = document.querySelectorAll("#cardDropMenu li");
+
 
 getProduct(products);
 
-
-
 searchInput.addEventListener('keyup', search);
-dogId.addEventListener('click', filter);
-birdId.addEventListener('click', filter);
-fishId.addEventListener('click', filter);
-catId.addEventListener('click', filter);
 
+// dogId.addEventListener('click', filter);
+let CategoryWrapperDiv = document.querySelectorAll(".categoryWrapper div");
+CategoryWrapperDiv.forEach(element => {
+    element.addEventListener('click', filter);
+});
 
-
+let notFound = document.getElementById("notFound");
 function filter(e) {
     let type = e.target.parentElement.id;
     console.log("type ", type);
     const filtered = products.filter(item => item.type == type);
-    getProduct(filtered);
-    console.log("filtered", filtered, filtered[0]._id);
+    console.log(filtered)
+    if (filtered.length > 0) {
+
+        getProduct(filtered);
+    }
+    else {
+
+        console.log(" style bak");
+        notFound.style.height = "400px";
+        setTimeout(() => {
+            notFound.style.height = "0px";
+        }, 3000);
+        getProduct(products);
+    }
+
+
 
 }
+
 
 
 function getProduct(products) {
@@ -424,21 +441,21 @@ function getProduct(products) {
     }
 
 }
-
-
 function search(e) {
     let newProducts = products.filter(p => p.msg.toLowerCase().includes(e.target.value.toLowerCase()));
     getProduct(newProducts);
-
+}
+function addBtnFunction(e) {
+    indexIncrease();
+    cardSpan.style.display = "block";
+    payment(e.target.id);
 }
 
-
-function addBtnFunction(e) {
-    index++;
-    cardSpan.style.display = "block";
-    cardSpan.innerHTML = index;
-    payment(e.target.id);
-
+function deletePayment(id) {
+    indexDecrease();
+    let liEl = document.getElementById("liEl-" + id);
+    liEl.remove();
+    totalPrice();
 }
 
 function payment(productId) {
@@ -447,14 +464,6 @@ function payment(productId) {
 
 
     if (selectedProduct) {
-
-        // console.log("Eklenecek ürün ID:", selectedProduct[0]._id);
-        // console.log("Eklenecek ürün type:", selectedProduct[0].type);
-        // console.log("Eklenecek ürün fiyatı:", selectedProduct[0].price);
-        // console.log("Eklenecek ürün boyut:", selectedProduct[0].size);
-        // console.log("Eklenecek ürün icon:", selectedProduct[0].icon);
-
-
         //ilk eklenen çocuk dispalay :none sepet doldu 
         let firstChild = cardDropMenu.firstElementChild;
         firstChild.style.display = "none";
@@ -462,7 +471,7 @@ function payment(productId) {
         //total idye sahip  elementi silip yeniden oluşturalım total değeri yenilensin
 
         cardDropMenu.innerHTML += `
-        <li><a class="dropdown-item" href="#">
+        <li id="liEl-${selectedProduct[0]._id}" ><a class="dropdown-item" href="#" >
         <div class="d-flex  align-items-center">
           <img src="${selectedProduct[0].icon}" class="rounded-circle basketIcon me-4 " /> 
           <div class="ms-3 ">
@@ -471,26 +480,82 @@ function payment(productId) {
             <p>price: ${selectedProduct[0].price}</p>
             <p>size:${selectedProduct[0].size}</p>
           </div>
-          <span id="${selectedProduct[0]._id}" class="close" >x</span>
+          <button type="button" id="${selectedProduct[0]._id}"  class="btn btn-danger close"  onclick="deletePayment(${selectedProduct[0]._id})" >x</button>
         </div>
-        </a></li>
+        </a>
+        </li>
         `
     }
 
-    let totalEl = document.getElementById("total");
-    console.log(totalEl);
-    if (totalEl) {
-        totalEl.remove();
-    }
-
-    total = total + parseInt(selectedProduct[0].price);
-    console.log("total", total);
-    cardDropMenu.innerHTML += `
-     <li class="total" id="total"><a class=" text-center " href="#">Toplam:${total}</a></li>`
-
+    totalPrice();
 
 }
+//sepet element ıdleri 
+// let AllProductOrder = [];
 
+
+
+function totalPrice() {
+
+
+    let total = 0;
+    // var olan total idye sahip elemnti sildim.
+    let totalEl = document.getElementById("total");
+    console.log(totalEl, " total buldum");
+    if (totalEl) {
+        totalEl.remove();
+        console.log(" total buldum sildim");
+    }
+
+    //eklenen tüm elemetleri id ile yakalayıp price değerine ulaştım 
+    let basket = document.querySelectorAll("[id*='liEl-']");
+    basket.forEach(element => {
+        let id = element.id;
+        let number = id.split("liEl-")[1];
+
+        // AllProductOrder.push(number);gerekirse kullanılır
+        products.filter(f => {
+
+            if (f._id == number) {
+                total = total + f.price;
+            }
+        });
+
+    });
+    // tüm total değerlerini sildiğim için güncel totallı yazdırdım 
+    cardDropMenu.innerHTML += `
+    <li class="total" id="total"><a class=" text-center " href="#">Toplam:${total}</a></li>`
+}
+
+
+
+
+
+console.log(liElements.length, "lielement ürün var ");
+let order = liElements.length - 2;
+console.log(order);
+
+
+function indexDecrease() {
+    order = order - 1;
+    emptyBasket();
+    cardSpan.innerHTML = order;
+};
+function indexIncrease() {
+    order = order + 1;
+    cardSpan.innerHTML = order;
+
+};
+
+function emptyBasket() {
+    let totalEl = document.getElementById("total");
+    if (order == 0) {
+        let firstChild = cardDropMenu.firstElementChild;
+        firstChild.style.display = "block";
+        cardSpan.style.display = "none";
+        totalEl.remove();
+    }
+}
 
 
 
