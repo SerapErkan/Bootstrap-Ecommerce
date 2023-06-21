@@ -7,8 +7,8 @@
   --card-dark: #141414;
   --text-dark: #08080c;
   --text-ligth: #fdf9ff;
+  /* --theme: #f7cb54e3; */
   --theme: #f7cb54e3;
-
   --Poppin-font: "Poppins", sans-serif;
   --transition: all 300ms ease-in-out;
   --gradient: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
@@ -44,7 +44,7 @@ body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  box-shadow: inser 0 0 0 rgba(240, 184, 32, 0.74);
+  box-shadow: inser 0 0 0 var(--theme);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -95,8 +95,7 @@ h4 {
   height: 350px;
   border-radius: 20px;
   color: var(--theme);
-  box-shadow: 0 4px 8px 0 rgba(241, 165, 50, 0.541),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 6px 12px 0 #0c0b0b, 0 6px 20px 0 #08080c;
   font-size: larger;
   font-weight: 400;
   font-family: var(--Poppin-font);
@@ -108,8 +107,7 @@ h4 {
 
 .cardDiv:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 8px 0 rgba(238, 156, 32, 0.541),
-    0 6px 20px 0 rgba(240, 184, 32, 0.74);
+  box-shadow: 0 6px 10px 0 var(--theme), 0 6px 20px 0 var(--theme);
 }
 .over:hover {
   height: 100%;
@@ -148,17 +146,16 @@ h4 {
   width: 140px;
   height: 140px;
   margin-bottom: 10px;
-  margin: auto;
-  box-shadow: 0 4px 8px 0 rgba(241, 165, 50, 0.541),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(70, 68, 65, 0.541), 0 6px 20px 0 var(--theme);
   margin-bottom: 10px;
   transition: var(--transition);
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .imgCategory:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px 0 rgba(238, 156, 32, 0.541), 0 6px 20px 0 #f0b820bd;
+  transform: translateY(-12px);
+  box-shadow: 0 0px 10px 0 var(--theme), 0 12px 20px 0 var(--theme);
 }
 
 .carousel-item {
@@ -166,12 +163,17 @@ h4 {
 }
 
 .categoryWrapper {
-  overflow-x: scroll;
   width: 100%;
   display: flex;
+  overflow: hidden;
   flex-wrap: nowrap;
   height: auto;
   padding: 20px;
+  transition: var(--transition);
+}
+
+.categoryWrapper:hover {
+  overflow-x: scroll;
 }
 
 .categoryWrapper::-webkit-scrollbar {
@@ -321,8 +323,7 @@ h4 {
   object-fit: cover;
   border: 1px solid var(--theme);
   padding-bottom: 20px;
-  box-shadow: 0 4px 8px 0 rgba(241, 165, 50, 0.541),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 var(--theme), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .basketIconFree {
@@ -346,38 +347,40 @@ h4 {
 
 .togBtn {
   color: var(--theme) !important;
-  box-shadow: 0 4px 8px 0 rgba(241, 165, 50, 0.541),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 var(--theme), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .notFound {
-  background-image: url("/images/bird\ \(5\).png");
+  position: relative;
   margin-top: 50px;
-  box-shadow: 0 4px 8px 0 rgba(241, 165, 50, 0.541),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 12px 10px var(--theme), 10px 0 12px 12px rgba(0, 0, 0, 0.19);
   height: 0px;
-  object-fit: cover;
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .contactBtn {
   font-size: 1.3rem;
   font-family: var(--Poppin-font);
   font-weight: 700;
-  width: 250px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   background-color: #08080c6b;
-  border-radius: 20px;
-  margin: 10px;
   color: var(--theme);
-  box-shadow: 0 4px 8px 0 rgba(241, 165, 50, 0.541),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 var(--theme), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: var(--transition);
-  text-align: center;
+  margin-left: 20px;
+  border-radius: 0 0 50% 100%;
 }
 
 .contactBtn:hover {
   transform: scale(1.2);
+}
+
+.contactGroup {
+  position: absolute;
+  top: 0;
+  right: 20px;
 }
 
 @media screen and (max-width: 800px) {
