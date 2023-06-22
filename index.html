@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="keywords" content="HTML, CSS, JavaScript " />
   <meta name="author" content="Serap Erkan" />
-  <meta name="description" content="SPA-Website | HTML, CSS & JS" />
+  <meta name="description" content="HTML, CSS & JS" />
   <!-- custom css -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
@@ -29,77 +29,49 @@
 </head>
 
 <body class="bg-dark">
-  <!-- navbar -->
-  <nav class="navbar  fixed-top p-4 mb-5  ">
-    <div class="  container-sm container-md container-xl d-flex  justify-content-between">
-      <a class="navbar-brand brand "> </i>Serap Erkan</a>
 
-      <div class="d-flex justify-content-center align-items-center d-none d-md-block ">
+  <header>
+    <div class="navbar-customer " id="navId">
+      <a class="brand "> Serap Erkan</a>
 
-        <button class="inputDiv me-4 text-white">
-          <input type="text" id="search" class="search" autocomplete="off" required />
-          <i class="fa-solid fa-magnifying-glass  fa-xl searchIcon"></i>
-        </button>
+      <button class="togBtn" id="togBtn"  >x</button>
 
-        <div class="btn-group">
-          <button type="button" class=" buttonBt me-4  text-white rounded-circle  dropdown-toggle"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-cart-plus fa-xl "></i> <span id="cardSpan"
-              class="position-absolute top-0 bg-danger rounded-circle ms-5 mt-2  ps-3 pe-3 p-2 cardSpan"></span>
-          </button>
-          <ul class="dropdown-menu mt-5  cardDropMenu  " id="cardDropMenu">
-            <li><img class="basketIconFree" src="images/cat.png">
-              <a class=" " href="#">
-                <p class="text-center ">Sepet Boş</p>
-              </a>
-            </li>
-          </ul>
 
-        </div>
-    
-        <button class="buttonBt me-4  text-white rounded-circle fa-xl" type="button">
-          <i class="fa-solid fa-circle-half-stroke"></i>
-        </button>
+      <ul class="navI" id="navShowId">
+        <li class="nav-item">
+          <div class="inputDiv me-4 text-white">
+            <input type="text" id="search" class="search" autocomplete="off" required onchange="searchInput" />
+            <i class="fa-solid fa-magnifying-glass  fa-xl searchIcon"></i>
+          </div>
+        </li>
+     <li class="nav-item"> 
+    <div class="btn-group">
+    <button type="button" class=" buttonBt me-4  text-white  dropdown-toggle"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa-solid fa-cart-plus fa-xl "></i> <span id="cardSpan"
+        class="position-absolute top-0 bg-danger rounded-circle ms-5 mt-2  ps-3 pe-3 p-2 cardSpan"></span>
+    </button>
+    <ul class="dropdown-menu mt-5  cardDropMenu  " id="cardDropMenu">
+      <li><img class="basketIconFree" src="images/cat.png">
+        <a class=" " href="#">
+          <p class="text-center ">Sepet Boş</p>
+        </a>
+      </li>
+    </ul>
 
-      </div>
 
-      <!-- collapse -->
-
-      <button class="navbar-toggler togBtn  d-sm-blok d-md-none" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <div class="nav collapse navbar-collapse d-sm-blok d-md-none " id="navbarNav">
-
-        <div class="inputDiv me-4 text-white">
-          <input type="text" id="search2" class="search" autocomplete="off" required />
-          <i class="fa-solid fa-magnifying-glass  fa-xl searchIcon"></i>
-        </div>
-        <button class="buttonBt me-4  text-white rounded-circle fa-xl" type="button">
-          <i class="fa-solid fa-circle-half-stroke"></i>
-        </button>
-        <div class="btn-group">
-          <button type="button" class=" buttonBt me-4  text-white rounded-circle  dropdown-toggle"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-cart-plus fa-xl "></i> <span id="cardSpan"
-              class="position-absolute top-0 bg-danger rounded-circle ms-5 mt-2  ps-3 pe-3 p-2 cardSpan"></span>
-          </button>
-          <ul class="dropdown-menu mt-5  cardDropMenu  " id="cardDropMenu">
-            <li><img class="basketIconFree" src="images/cat.png">
-              <a class=" " href="#">
-                <p class="text-center ">Sepet Boş</p>
-              </a>
-            </li>
-          </ul>
-
-        </div>
-      
-      
-
-      </div>
+  </div>
+      </li>
+ 
+      </ul>
     </div>
+  </header>
 
-  </nav>
+
+
+
+
+
 
   <!-- ------slider--- -->
   <div class=container>
@@ -188,13 +160,22 @@
     <div class="row justify-content-center">
       <div class="col-sm-12 ">
 
-        <div class="notFound d-flex flex-column align-items-center justify-content-center" id="notFound">
-            <img src="images/bird (8).png" class="img-fluid">
+        <div class="notFound d-flex flex-column align-items-center justify-content-center" id="notFound" >
+          <div class="errImg">
+               <img src="images/bird (8).png" >
+          </div>
+         
             <div class="d-flex flex-row contactGroup">
             <button class="contactBtn"><i class="fa-regular fa-envelope fa-2xl "></i></button>  
             <button class="contactBtn"><i class="fa-brands fa-github fa-2xl "></i></button> 
             <button class="contactBtn"><i class="fa-brands fa-linkedin fa-2xl "></i></button> 
             </div>
+
+            <div class="d-flex flex-row contactGroup2">
+              <button class="contactBtn2"><i class="fa-regular fa-envelope fa-2xl "></i></button>  
+              <button class="contactBtn2"><i class="fa-brands fa-github fa-2xl "></i></button> 
+              <button class="contactBtn2"><i class="fa-brands fa-linkedin fa-2xl "></i></button> 
+              </div>
            
         </div>
       
@@ -218,8 +199,12 @@
 
 
 
-  <div class="footer">
+  <div class="theme ">
+   <button class="theme">
+    <input type="color" class="colorInput"  id="colorInput" onchange=getSelectedColor()>
+   </button>
   </div>
+
 
 </body>
 <!-- <script src="/js/router.js"></script> -->

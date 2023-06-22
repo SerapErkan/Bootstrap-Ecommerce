@@ -347,17 +347,19 @@ let products = [
 
 ]
 
-let navbar = document.querySelector('.navbar');
-// navbar scroll
+let navId = document.getElementById('navId');
+
 window.addEventListener('scroll', function () {
     let position = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     if (position >= 80) {
-        navbar.classList.add('bg-navbar');
+        navId.classList.add('bg-navbar');
     } else {
-        navbar.classList.remove('bg-navbar');
+        navId.classList.remove('bg-navbar');
     }
 });
+
+
 
 
 
@@ -371,8 +373,12 @@ let fishId = document.getElementById("fish");
 let catId = document.getElementById("cat");
 
 let cardDropMenu = document.getElementById("cardDropMenu");
-let liElements = document.querySelectorAll("#cardDropMenu li");
+let liElements = document.querySelectorAll("[id*='liEl-']");
 
+
+let navShowId = document.getElementById("navShowId");
+let togBtn = document.getElementById("togBtn");
+togBtn.onclick = toggleBtn;
 
 getProduct(products);
 
@@ -537,7 +543,7 @@ function totalPrice() {
 
 
 console.log(liElements.length, "lielement ürün var ");
-let order = liElements.length - 2;
+let order = liElements.length;
 console.log(order);
 
 
@@ -569,9 +575,28 @@ function emptyBasket() {
 
 
 
+function toggleBtn() {
+    console.log("tıkladı");
+
+    if (togBtn.innerHTML == "x") {
+
+        navShowId.style.height = "400px";
+        togBtn.innerHTML = "-";
+    }
+    else {
+        navShowId.style.height = "0px";
+        togBtn.innerHTML = "x";
+
+    }
 
 
+}
 
+let colorInput = document.getElementById("colorInput");
+function getSelectedColor() {
+    document.documentElement.style.setProperty('--theme', colorInput.value);
+
+}
 
 
 
