@@ -441,14 +441,19 @@ h4 {
   bottom: 0;
   right: 0;
   border-radius: 10px;
+  box-shadow: 0 4px 8px 0 var(--theme), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 10px;
 }
 
 /* //theme */
 .colorInput {
   appearance: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   outline: none;
   box-shadow: 0 3px 8px 2px var(--theme), 0 0 4px rgba(0, 0, 0, 0.3);
