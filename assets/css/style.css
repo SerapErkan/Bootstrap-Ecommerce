@@ -38,6 +38,7 @@ body {
   font-size: 1.4rem;
   line-height: 1.6;
   font-family: var(--Poppin-font);
+  user-select: none;
 }
 
 ::-webkit-scrollbar {
